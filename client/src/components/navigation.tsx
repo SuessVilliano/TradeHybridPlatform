@@ -17,7 +17,7 @@ export default function Navigation() {
   };
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-700 sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -57,7 +57,7 @@ export default function Navigation() {
                 </button>
               ) : (
                 <Link href="/thc-token">
-                  <button className="text-gray-700 hover:text-cyan-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                  <button className="text-gray-700 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                     THC Token
                   </button>
                 </Link>
@@ -73,13 +73,13 @@ export default function Navigation() {
               </Link>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-gray-700 hover:text-cyan-500 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-700 dark:text-gray-300 hover:text-cyan-500 dark:hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Contact
               </button>
@@ -88,10 +88,18 @@ export default function Navigation() {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-700 hover:text-purple-600">
+            <ThemeToggle />
+            <Button 
+              variant="ghost" 
+              onClick={() => window.location.href = '/api/login'}
+              className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
+            >
               Login
             </Button>
-            <Button className="bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white th-glow">
+            <Button 
+              onClick={() => scrollToSection('pricing')}
+              className="bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white th-glow"
+            >
               Get Started
             </Button>
           </div>

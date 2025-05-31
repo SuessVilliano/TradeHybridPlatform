@@ -10,7 +10,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="home" className="relative bg-white overflow-hidden">
+    <section id="home" className="relative bg-white dark:bg-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
@@ -26,6 +26,7 @@ export default function HeroSection() {
                 <div className="rounded-md shadow">
                   <Button 
                     size="lg"
+                    onClick={() => window.location.href = '/api/login'}
                     className="w-full flex items-center justify-center px-8 py-3 text-base font-medium bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white md:py-4 md:text-lg md:px-10 th-glow"
                   >
                     Start Trading Now
@@ -35,10 +36,10 @@ export default function HeroSection() {
                   <Button 
                     variant="outline"
                     size="lg"
-                    onClick={() => scrollToSection('services')}
+                    onClick={() => scrollToSection('pricing')}
                     className="w-full flex items-center justify-center px-8 py-3 text-base font-medium text-purple-600 bg-purple-50 border-purple-200 hover:bg-purple-100 md:py-4 md:text-lg md:px-10"
                   >
-                    Learn More
+                    Get Started
                   </Button>
                 </div>
               </div>

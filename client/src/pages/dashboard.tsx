@@ -26,6 +26,7 @@ import {
   Sun,
   Moon
 } from "lucide-react";
+import { KangarooAvatar } from "@/components/kangaroo-avatar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useTheme } from "@/hooks/useTheme";
 import WelcomeTutorial from "@/components/welcome-tutorial";
@@ -217,9 +218,12 @@ export default function Dashboard() {
                 <h1 className={`text-2xl font-bold transition-colors duration-300 ${
                   theme === 'dark' ? 'text-white' : 'text-gray-900'
                 }`}>Trade Hybrid Dashboard</h1>
-                <p className={`transition-colors duration-300 ${
-                  theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
-                }`}>Welcome back, trader</p>
+                <div className="flex items-center space-x-3">
+                  <KangarooAvatar className="w-8 h-8" />
+                  <p className={`transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
+                  }`}>Welcome back, Yuppy Don</p>
+                </div>
               </div>
             </div>
             <div className="flex items-center space-x-4">
