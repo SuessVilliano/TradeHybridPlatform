@@ -69,7 +69,7 @@ export default function PricingSection() {
         "Access to Founders Liquidity Pool"
       ],
       buttonText: "BUY NOW",
-      checkoutUrl: "https://whop.com/checkout/1SOuliJDFuPJPEFUPL-a4l7-4NwZ-nnVs-9Z8gADiIFnS0/",
+      checkoutUrl: "https://whop.com/checkout/plan_hcBFS8A0XQZBi?d2c=true",
       popular: false,
       icon: Crown,
       gradient: "from-purple-600 to-pink-500"
