@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/home";
 import THCTokenPage from "@/pages/thc-token";
 import Dashboard from "@/pages/dashboard";
+import WhopTest from "@/pages/whop-test";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -14,6 +15,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/thc-token" component={THCTokenPage} />
       <Route path="/dashboard" component={Dashboard} />
+      <Route path="/whop-test" component={WhopTest} />
       <Route component={NotFound} />
     </Switch>
   );
