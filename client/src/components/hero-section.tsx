@@ -12,14 +12,14 @@ export default function HeroSection() {
   return (
     <section id="home" className="relative bg-white dark:bg-gray-900 overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+        <div className="relative z-10 pb-8 bg-white dark:bg-gray-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl animate-slide-up">
+              <h1 className="text-4xl tracking-tight font-bold text-gray-900 dark:text-white sm:text-5xl md:text-6xl animate-slide-up">
                 <span className="block xl:inline">Professional Trading</span>
                 <span className="block bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent xl:inline th-text-glow"> Made Simple</span>
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 animate-fade-in">
+              <p className="mt-3 text-base text-gray-500 dark:text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 animate-fade-in">
                 Access advanced trading tools, comprehensive market analysis, and our exclusive THC token ecosystem. Join thousands of traders who trust Trade Hybrid Club for their investment journey.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
@@ -37,7 +37,7 @@ export default function HeroSection() {
                     variant="outline"
                     size="lg"
                     onClick={() => scrollToSection('pricing')}
-                    className="w-full flex items-center justify-center px-8 py-3 text-base font-medium text-purple-600 bg-purple-50 border-purple-200 hover:bg-purple-100 md:py-4 md:text-lg md:px-10"
+                    className="w-full flex items-center justify-center px-8 py-3 text-base font-medium text-purple-600 dark:text-purple-400 bg-purple-50 dark:bg-purple-900/20 border-purple-200 dark:border-purple-700 hover:bg-purple-100 dark:hover:bg-purple-900/40 md:py-4 md:text-lg md:px-10"
                   >
                     Get Started
                   </Button>
