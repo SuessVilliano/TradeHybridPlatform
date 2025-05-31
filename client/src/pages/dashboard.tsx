@@ -107,13 +107,12 @@ export default function Dashboard() {
     },
     {
       id: "shop",
-      title: "Shop",
+      title: "Trade Hybrid Shop",
       description: "Purchase trading tools and merchandise",
       icon: ShoppingBag,
-      url: "#",
+      url: "https://trade-hybrid.printify.me/category/all/1",
       gradient: "from-amber-500 to-amber-600",
-      isEmbed: false,
-      comingSoon: true
+      isEmbed: true
     },
     {
       id: "billing",

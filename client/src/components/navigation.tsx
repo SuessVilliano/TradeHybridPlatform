@@ -83,6 +83,12 @@ export default function Navigation() {
               >
                 Contact
               </button>
+              <button 
+                onClick={() => window.open('https://trade-hybrid.printify.me/category/all/1', '_blank')}
+                className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+              >
+                Shop
+              </button>
             </div>
           </div>
 
@@ -165,15 +171,28 @@ export default function Navigation() {
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 w-full text-left"
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 w-full text-left"
               >
                 Contact
               </button>
-              <div className="pt-4 pb-2 border-t border-gray-200">
-                <Button variant="ghost" className="w-full justify-start mb-2">
+              <button 
+                onClick={() => window.open('https://trade-hybrid.printify.me/category/all/1', '_blank')}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400 w-full text-left"
+              >
+                Shop
+              </button>
+              <div className="pt-4 pb-2 border-t border-gray-200 dark:border-gray-700">
+                <Button 
+                  variant="ghost" 
+                  onClick={() => window.location.href = '/api/auth/whop'}
+                  className="w-full justify-start mb-2 text-gray-700 dark:text-gray-300"
+                >
                   Login
                 </Button>
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                <Button 
+                  onClick={() => scrollToSection('pricing')}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                >
                   Get Started
                 </Button>
               </div>
