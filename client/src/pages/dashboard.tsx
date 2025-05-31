@@ -125,7 +125,7 @@ export default function Dashboard() {
       title: "Discord Community",
       description: "Join live discussions with fellow traders",
       icon: MessageSquare,
-      url: "https://discord.gg/tradehybrid",
+      url: "https://discord.com/invite/jFFErepG?utm_source=Discord%20Widget&utm_medium=Connect",
       gradient: "from-indigo-500 to-indigo-600",
       isEmbed: false
     },
