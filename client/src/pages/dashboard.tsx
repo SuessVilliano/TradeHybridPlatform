@@ -41,6 +41,8 @@ export default function Dashboard() {
     enabled: !!userId,
   });
 
+  const isNewUser = (newUserCheck as any)?.isNewUser || false;
+
   // Fetch user's Whop subscription data
   const { data: subscriptions, isLoading: subscriptionsLoading } = useQuery({
     queryKey: ['/api/whop/subscriptions', userId],
@@ -425,7 +427,7 @@ export default function Dashboard() {
 
       {/* Welcome Tutorial */}
       <WelcomeTutorial 
-        isNewUser={newUserCheck?.isNewUser || false}
+        isNewUser={isNewUser}
         onComplete={() => {
           // Track tutorial completion in CRM
           fetch('/api/crm/tutorial-complete', {
