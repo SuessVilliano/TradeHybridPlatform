@@ -3,53 +3,23 @@ import axios from 'axios';
 const WHOP_API_BASE_URL = 'https://api.whop.com/api/v3';
 
 export class WhopAPI {
-  private clientId: string;
-  private clientSecret: string;
-  private accessToken?: string;
+  private apiKey: string;
 
   constructor() {
-    this.clientId = process.env.WHOP_CLIENT_ID!;
-    this.clientSecret = process.env.WHOP_CLIENT_SECRET!;
+    this.apiKey = process.env.WHOP_API_KEY!;
     
-    if (!this.clientId || !this.clientSecret) {
-      throw new Error('Whop API credentials not found in environment variables');
-    }
-  }
-
-  private async getAccessToken(): Promise<string> {
-    if (this.accessToken) {
-      return this.accessToken;
-    }
-
-    try {
-      const response = await axios.post(`${WHOP_API_BASE_URL}/oauth/token`, {
-        grant_type: 'client_credentials',
-        client_id: this.clientId,
-        client_secret: this.clientSecret,
-      });
-
-      const token: string = response.data.access_token;
-      if (!token) {
-        throw new Error('No access token received from Whop API');
-      }
-      
-      this.accessToken = token;
-      return token;
-    } catch (error) {
-      console.error('Failed to get Whop access token:', error);
-      throw new Error('Failed to authenticate with Whop API');
+    if (!this.apiKey) {
+      throw new Error('Whop API key not found in environment variables');
     }
   }
 
   private async makeRequest(endpoint: string, method: 'GET' | 'POST' = 'GET', data?: any) {
-    const token = await this.getAccessToken();
-    
     try {
       const response = await axios({
         method,
         url: `${WHOP_API_BASE_URL}${endpoint}`,
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${this.apiKey}`,
           'Content-Type': 'application/json',
         },
         data,
