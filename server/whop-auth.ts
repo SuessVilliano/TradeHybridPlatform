@@ -18,22 +18,41 @@ export function setupWhopAuth(app: Express) {
   // Whop OAuth login endpoint
   app.get("/api/auth/whop", (req: Request, res: Response) => {
     const clientId = process.env.WHOP_CLIENT_ID;
+    
+    if (!clientId) {
+      console.error("WHOP_CLIENT_ID not configured");
+      return res.status(500).json({ error: "OAuth not configured" });
+    }
+    
     const redirectUri = `${req.protocol}://${req.get('host')}/api/auth/whop/callback`;
+    console.log("Whop OAuth redirect URI:", redirectUri);
     
     const authUrl = `https://whop.com/oauth?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=read_user read_memberships`;
+    console.log("Redirecting to Whop OAuth:", authUrl);
     
     res.redirect(authUrl);
   });
 
   // Whop OAuth callback endpoint
   app.get("/api/auth/whop/callback", async (req: Request, res: Response) => {
+    console.log("Whop callback received:", req.query);
     const { code, error } = req.query;
 
     if (error || !code) {
-      return res.redirect("/dashboard?error=auth_failed");
+      console.error("OAuth error or no code:", error);
+      return res.redirect("/whop-test?error=auth_failed");
     }
 
     try {
+      const clientId = process.env.WHOP_CLIENT_ID;
+      const clientSecret = process.env.WHOP_CLIENT_SECRET;
+      
+      if (!clientId || !clientSecret) {
+        throw new Error("Whop credentials not configured");
+      }
+
+      console.log("Exchanging code for token...");
+      
       // Exchange code for access token
       const response = await fetch("https://api.whop.com/api/v3/oauth/token", {
         method: "POST",
@@ -41,20 +60,22 @@ export function setupWhopAuth(app: Express) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          client_id: process.env.WHOP_CLIENT_ID,
-          client_secret: process.env.WHOP_CLIENT_SECRET,
+          client_id: clientId,
+          client_secret: clientSecret,
           code: code,
           grant_type: "authorization_code",
         }),
       });
 
       const tokenData = await response.json();
+      console.log("Token response:", tokenData);
 
       if (!tokenData.access_token) {
-        throw new Error("No access token received");
+        throw new Error(`No access token received: ${JSON.stringify(tokenData)}`);
       }
 
       // Fetch user data
+      console.log("Fetching user data...");
       const userResponse = await fetch("https://api.whop.com/api/v3/me", {
         headers: {
           Authorization: `Bearer ${tokenData.access_token}`,
@@ -62,6 +83,7 @@ export function setupWhopAuth(app: Express) {
       });
 
       const userData = await userResponse.json();
+      console.log("User data:", userData);
 
       // Store user data in session
       req.session.whopUser = {
@@ -71,11 +93,12 @@ export function setupWhopAuth(app: Express) {
         access_token: tokenData.access_token,
       };
 
-      // Redirect to dashboard
-      res.redirect("/dashboard?auth=success");
+      console.log("Session saved, redirecting to test page");
+      // Redirect to test page
+      res.redirect("/whop-test?auth=success");
     } catch (error) {
       console.error("Whop OAuth error:", error);
-      res.redirect("/dashboard?error=auth_failed");
+      res.redirect("/whop-test?error=auth_failed");
     }
   });
 
