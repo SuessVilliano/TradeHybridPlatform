@@ -22,12 +22,13 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <img 
-                src="/trade-hybrid-logo.png" 
-                alt="Trade Hybrid Club"
-                className="w-10 h-10 mr-3"
-              />
-              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent">Trade Hybrid Club</span>
+              <Link href="/">
+                <img 
+                  src="/trade-hybrid-logo.png" 
+                  alt="Trade Hybrid Club"
+                  className="w-10 h-10 cursor-pointer hover:opacity-80 transition-opacity"
+                />
+              </Link>
             </div>
           </div>
 

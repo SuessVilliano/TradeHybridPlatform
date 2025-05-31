@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -184,11 +185,13 @@ export default function Dashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <img 
-                src="/trade-hybrid-logo.png" 
-                alt="Trade Hybrid Club"
-                className="w-10 h-10"
-              />
+              <Link href="/">
+                <img 
+                  src="/trade-hybrid-logo.png" 
+                  alt="Trade Hybrid Club"
+                  className="w-10 h-10 cursor-pointer hover:opacity-80 transition-opacity"
+                />
+              </Link>
               <div>
                 <h1 className="text-2xl font-bold text-white">Trade Hybrid Dashboard</h1>
                 <p className="text-purple-300">Welcome back, trader</p>
