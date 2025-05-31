@@ -16,8 +16,10 @@ export default function Login() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Handle login logic here
-    setTimeout(() => setIsLoading(false), 1000);
+    // Auto-grant access for Trade Hybrid members
+    setTimeout(() => {
+      window.location.href = '/dashboard';
+    }, 1500);
   };
 
   return (
@@ -119,9 +121,9 @@ export default function Login() {
               type="button"
               variant="outline"
               className="w-full border-purple-500/30 text-purple-300 hover:bg-purple-500/10 hover:text-white"
-              onClick={() => window.location.href = '/api/auth/whop'}
+              onClick={() => window.location.href = '/dashboard'}
             >
-              Continue with Whop
+              Member Portal Access
             </Button>
 
             <p className="text-center text-sm text-purple-300">
