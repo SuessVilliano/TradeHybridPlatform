@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { whopAPI } from "./whop-api";
 import { setupWhopAuth } from "./whop-auth";
+import { crmIntegration } from "./crm-integration";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { z } from "zod";
 
@@ -66,6 +67,50 @@ export async function registerRoutes(app: Express): Promise<Server> {
     } catch (error) {
       console.error("Error fetching products:", error);
       res.status(500).json({ message: "Failed to fetch products" });
+    }
+  });
+
+  // CRM Integration endpoints
+  app.get("/api/crm/user/:userId", async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const userProfile = await crmIntegration.getUserProfile(userId);
+      res.json(userProfile);
+    } catch (error) {
+      console.error("Error fetching CRM user profile:", error);
+      res.status(500).json({ message: "Failed to fetch user profile" });
+    }
+  });
+
+  app.post("/api/crm/track-activity", async (req, res) => {
+    try {
+      await crmIntegration.trackActivity(req.body);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Error tracking CRM activity:", error);
+      res.status(500).json({ message: "Failed to track activity" });
+    }
+  });
+
+  app.post("/api/crm/tutorial-complete", async (req, res) => {
+    try {
+      const { userId } = req.body;
+      await crmIntegration.markTutorialComplete(userId);
+      res.json({ success: true });
+    } catch (error) {
+      console.error("Error marking tutorial complete:", error);
+      res.status(500).json({ message: "Failed to mark tutorial complete" });
+    }
+  });
+
+  app.get("/api/crm/check-new-user/:userId", async (req, res) => {
+    try {
+      const { userId } = req.params;
+      const isNewUser = await crmIntegration.checkIfNewUser(userId);
+      res.json({ isNewUser });
+    } catch (error) {
+      console.error("Error checking if user is new:", error);
+      res.status(500).json({ message: "Failed to check user status" });
     }
   });
 

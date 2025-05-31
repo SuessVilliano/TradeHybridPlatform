@@ -28,11 +28,18 @@ import {
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { useTheme } from "@/hooks/useTheme";
+import WelcomeTutorial from "@/components/welcome-tutorial";
 
 export default function Dashboard() {
   const [openWidget, setOpenWidget] = useState<string | null>(null);
   const [userId, setUserId] = useState<string>("demo-user"); // In real app, get from auth
   const { theme, toggleTheme } = useTheme();
+
+  // Check if user is new for tutorial
+  const { data: newUserCheck } = useQuery({
+    queryKey: ['/api/crm/check-new-user', userId],
+    enabled: !!userId,
+  });
 
   // Fetch user's Whop subscription data
   const { data: subscriptions, isLoading: subscriptionsLoading } = useQuery({
@@ -378,9 +385,15 @@ export default function Dashboard() {
 
         {/* Recent Activity */}
         <div className="mt-8">
-          <Card className="bg-black/40 border-purple-500/20 backdrop-blur-sm">
+          <Card className={`backdrop-blur-sm transition-colors duration-300 ${
+            theme === 'dark' 
+              ? 'bg-black/40 border-purple-500/20' 
+              : 'bg-white/60 border-gray-200'
+          }`}>
             <CardHeader>
-              <CardTitle className="text-white">Recent Activity</CardTitle>
+              <CardTitle className={`transition-colors duration-300 ${
+                theme === 'dark' ? 'text-white' : 'text-gray-900'
+              }`}>Recent Activity</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -390,12 +403,18 @@ export default function Dashboard() {
                   { action: "Discord message", time: "1 hour ago", type: "community" },
                   { action: "AI analysis complete", time: "2 hours ago", type: "ai" }
                 ].map((activity, index) => (
-                  <div key={index} className="flex items-center justify-between py-2 border-b border-purple-500/10 last:border-b-0">
+                  <div key={index} className={`flex items-center justify-between py-2 border-b last:border-b-0 transition-colors duration-300 ${
+                    theme === 'dark' ? 'border-purple-500/10' : 'border-gray-200'
+                  }`}>
                     <div className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-gradient-to-r from-purple-600 to-cyan-500 rounded-full"></div>
-                      <span className="text-white">{activity.action}</span>
+                      <span className={`transition-colors duration-300 ${
+                        theme === 'dark' ? 'text-white' : 'text-gray-900'
+                      }`}>{activity.action}</span>
                     </div>
-                    <span className="text-purple-300 text-sm">{activity.time}</span>
+                    <span className={`text-sm transition-colors duration-300 ${
+                      theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
+                    }`}>{activity.time}</span>
                   </div>
                 ))}
               </div>
@@ -403,6 +422,19 @@ export default function Dashboard() {
           </Card>
         </div>
       </div>
+
+      {/* Welcome Tutorial */}
+      <WelcomeTutorial 
+        isNewUser={newUserCheck?.isNewUser || false}
+        onComplete={() => {
+          // Track tutorial completion in CRM
+          fetch('/api/crm/tutorial-complete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId })
+          }).catch(console.error);
+        }}
+      />
 
       {/* Embed Widgets */}
       {openWidget && (() => {
