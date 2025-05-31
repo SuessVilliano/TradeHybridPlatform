@@ -5,6 +5,7 @@ import { Link, useLocation } from "wouter";
 
 export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [location] = useLocation();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -43,12 +44,20 @@ export default function Navigation() {
               >
                 Services
               </button>
-              <button 
-                onClick={() => scrollToSection('thc-token')}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
-              >
-                THC Token
-              </button>
+              {location === "/" ? (
+                <button 
+                  onClick={() => scrollToSection('thc-token')}
+                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                >
+                  THC Token
+                </button>
+              ) : (
+                <Link href="/thc-token">
+                  <button className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                    THC Token
+                  </button>
+                </Link>
+              )}
               <button 
                 onClick={() => scrollToSection('about')}
                 className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
@@ -103,12 +112,20 @@ export default function Navigation() {
               >
                 Services
               </button>
-              <button 
-                onClick={() => scrollToSection('thc-token')}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 w-full text-left"
-              >
-                THC Token
-              </button>
+              {location === "/" ? (
+                <button 
+                  onClick={() => scrollToSection('thc-token')}
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 w-full text-left"
+                >
+                  THC Token
+                </button>
+              ) : (
+                <Link href="/thc-token">
+                  <button className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 w-full text-left">
+                    THC Token
+                  </button>
+                </Link>
+              )}
               <button 
                 onClick={() => scrollToSection('about')}
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 w-full text-left"
