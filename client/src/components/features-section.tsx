@@ -4,46 +4,46 @@ import { TrendingUp, Shield, Coins, Bot, Users, Smartphone } from "lucide-react"
 export default function FeaturesSection() {
   const features = [
     {
+      icon: Users,
+      title: "Community",
+      description: "Vibrant trading community to network, share insights, and collaborate with traders of all levels.",
+      iconColor: "text-purple-600",
+      bgColor: "bg-purple-100"
+    },
+    {
+      icon: Smartphone,
+      title: "Members App",
+      description: "Access everything you need, right in the palm of your hands with our user friendly Members App.",
+      iconColor: "text-cyan-600",
+      bgColor: "bg-cyan-100"
+    },
+    {
       icon: TrendingUp,
-      title: "Advanced Analytics",
-      description: "Professional-grade charting tools, technical indicators, and market analysis to make informed trading decisions.",
-      iconColor: "text-blue-600",
-      bgColor: "bg-blue-100"
-    },
-    {
-      icon: Shield,
-      title: "Bank-Level Security",
-      description: "Your assets are protected with military-grade encryption, cold storage, and multi-factor authentication.",
-      iconColor: "text-green-600",
-      bgColor: "bg-green-100"
-    },
-    {
-      icon: Coins,
-      title: "THC Token Benefits",
-      description: "Exclusive access to premium features, reduced trading fees, and governance rights with our native THC token.",
+      title: "Tools",
+      description: "Advanced tools including indicators, trade alerts, trade manager bots, trade journals and much more.",
       iconColor: "text-purple-600",
       bgColor: "bg-purple-100"
     },
     {
       icon: Bot,
-      title: "Automated Trading",
-      description: "Deploy sophisticated trading bots and algorithms to execute strategies 24/7 across multiple markets.",
-      iconColor: "text-yellow-600",
-      bgColor: "bg-yellow-100"
+      title: "Smart AI Agents",
+      description: "Harness the power of AI driven robots to get smart signals and smart setups, capitalizing on opportunities 24/7.",
+      iconColor: "text-cyan-600",
+      bgColor: "bg-cyan-100"
     },
     {
-      icon: Users,
-      title: "Community Insights",
-      description: "Learn from experienced traders, share strategies, and access exclusive market insights from our community.",
-      iconColor: "text-red-600",
-      bgColor: "bg-red-100"
+      icon: Shield,
+      title: "Education",
+      description: "Education with pre-recorded courses, live trade sessions and live trainings to enhance your skills.",
+      iconColor: "text-purple-600",
+      bgColor: "bg-purple-100"
     },
     {
-      icon: Smartphone,
-      title: "Mobile Trading",
-      description: "Trade on-the-go with our responsive web platform and dedicated mobile apps for iOS and Android.",
-      iconColor: "text-indigo-600",
-      bgColor: "bg-indigo-100"
+      icon: Coins,
+      title: "THC Token Benefits",
+      description: "Exclusive access to premium features, reduced trading fees, and governance rights with our native Trade Hybrid Coin.",
+      iconColor: "text-cyan-600",
+      bgColor: "bg-cyan-100"
     }
   ];
 
@@ -52,10 +52,10 @@ export default function FeaturesSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
-            Why Choose TradeHybrid Club?
+            Why Choose Trade Hybrid Club?
           </h2>
           <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            We provide institutional-grade trading tools with retail accessibility, backed by our innovative THC token ecosystem.
+            We empower individuals worldwide by providing the knowledge, tools and community support for financial success.
           </p>
         </div>
 

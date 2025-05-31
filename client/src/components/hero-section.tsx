@@ -20,7 +20,7 @@ export default function HeroSection() {
                 <span className="block bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent xl:inline th-text-glow"> Made Simple</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 animate-fade-in">
-                Access advanced trading tools, comprehensive market analysis, and our exclusive THC token ecosystem. Join thousands of traders who trust TradeHybrid Club for their investment journey.
+                Access advanced trading tools, comprehensive market analysis, and our exclusive THC token ecosystem. Join thousands of traders who trust Trade Hybrid Club for their investment journey.
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">

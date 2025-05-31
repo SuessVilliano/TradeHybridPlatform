@@ -41,13 +41,13 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-6">
-              About TradeHybrid Club
+              About Trade Hybrid Club
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              Founded in 2020, TradeHybrid Club has emerged as a leading cryptocurrency trading platform, serving over 15,000 active traders worldwide. Our mission is to democratize access to professional trading tools while maintaining the highest standards of security and reliability.
+              At Trade Hybrid, we empower individuals worldwide by providing the knowledge, tools and community support. Our global network of traders spans the globe, offering a pathway to financial freedom regardless of location.
             </p>
             <p className="text-gray-600 mb-6">
-              We combine cutting-edge technology with deep market expertise to provide a trading experience that scales from beginner-friendly interfaces to sophisticated institutional-grade tools. Our native THC token ecosystem further enhances the platform's utility and community governance.
+              Experience the best of BOTH worlds - combine human wisdom with automated tools to make smarter trading decisions, save time, and achieve consistent results in the financial markets.
             </p>
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (

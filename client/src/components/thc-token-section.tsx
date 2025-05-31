@@ -70,7 +70,7 @@ export default function THCTokenSection() {
             THC Token: Our Native Cryptocurrency
           </h2>
           <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-            TradeHybrid Coin (THC) is our utility token that powers the entire ecosystem, providing holders with exclusive benefits and governance rights.
+            Trade Hybrid Coin (THC) is our utility token that powers the entire ecosystem, providing holders with exclusive benefits and governance rights.
           </p>
         </div>
 
