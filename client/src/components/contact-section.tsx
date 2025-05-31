@@ -59,22 +59,22 @@ export default function ContactSection() {
     {
       icon: MapPin,
       title: "Global Headquarters",
-      details: ["One Raffles Quay, Level 18", "Singapore 048583"]
+      details: ["24A Trolley Square #1112", "Wilmington, DE 19806"]
     },
     {
       icon: Phone,
       title: "24/7 Support",
-      details: ["+65 6123 4567", "+1 (555) 123-4567"]
+      details: ["+1 (302) 555-0123", "+1 (855) THC-TRADE"]
     },
     {
       icon: Mail,
       title: "Email Support",
-      details: ["support@tradehybrid.club", "business@tradehybrid.club"]
+      details: ["contact@tradehybrid.co", "support@tradehybrid.co"]
     },
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["24/7 Trading Platform", "Support: Monday - Friday, 9 AM - 6 PM SGT"]
+      details: ["24/7 Trading Platform", "Support: Monday - Friday, 9 AM - 6 PM EST"]
     }
   ];
 

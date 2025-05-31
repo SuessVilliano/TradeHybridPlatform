@@ -63,7 +63,7 @@ export default function AboutSection() {
             <div className="bg-white rounded-lg shadow-lg p-8 text-center">
               <Building className="text-blue-600 h-16 w-16 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Global Headquarters</h3>
-              <p className="text-gray-600">Singapore Financial District</p>
+              <p className="text-gray-600">Wilmington, Delaware</p>
               <div className="mt-6 grid grid-cols-3 gap-4">
                 {companyStats.map((stat, index) => (
                   <div key={index} className="text-center">

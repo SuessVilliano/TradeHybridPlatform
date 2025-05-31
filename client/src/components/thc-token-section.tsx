@@ -1,7 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { Percent, Vote, Star, Coins } from "lucide-react";
+import { Percent, Vote, Star, Coins, ExternalLink, Copy, Zap, Shield } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function THCTokenSection() {
+  const { toast } = useToast();
+
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      toast({
+        title: "Copied!",
+        description: "Contract address copied to clipboard",
+      });
+    } catch (err) {
+      toast({
+        title: "Copy failed",
+        description: "Unable to copy to clipboard",
+        variant: "destructive",
+      });
+    }
+  };
   const tokenBenefits = [
     {
       icon: Percent,
@@ -31,17 +49,17 @@ export default function THCTokenSection() {
 
   const tokenInfo = [
     { label: "Token Symbol", value: "THC" },
-    { label: "Total Supply", value: "1,000,000,000 THC" },
-    { label: "Circulating Supply", value: "750,000,000 THC" },
-    { label: "Current Price", value: "$0.245", valueColor: "text-green-400" },
-    { label: "Market Cap", value: "$183.75M" }
+    { label: "Blockchain", value: "Solana (SPL)" },
+    { label: "Contract Address", value: "4kXPBvQthvpes9TC7h6tXsYxWPUbYWpocBMVUG3eBLy4" },
+    { label: "Decimals", value: "9" },
+    { label: "Network", value: "Solana Mainnet" }
   ];
 
   const tokenStats = [
-    { value: "15.2%", label: "Current APY" },
-    { value: "12,500+", label: "Token Holders" },
-    { value: "$2.1M", label: "24h Volume" },
-    { value: "85%", label: "Staked Supply" }
+    { value: "Live Data", label: "Solana Network" },
+    { value: "Fast & Cheap", label: "Transactions" },
+    { value: "Decentralized", label: "SPL Token" },
+    { value: "Staking Available", label: "Earn Rewards" }
   ];
 
   return (
@@ -64,9 +82,47 @@ export default function THCTokenSection() {
                 {tokenInfo.map((info, index) => (
                   <div key={index} className="flex justify-between items-center py-2 border-b border-white/20">
                     <span className="text-blue-100">{info.label}</span>
-                    <span className={`font-semibold ${info.valueColor || 'text-white'}`}>{info.value}</span>
+                    <div className="flex items-center space-x-2">
+                      <span className="font-semibold text-white break-all text-sm">{info.value}</span>
+                      {info.label === "Contract Address" && (
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => copyToClipboard(info.value)}
+                          className="h-6 w-6 p-0 hover:bg-white/20"
+                        >
+                          <Copy className="h-3 w-3 text-white" />
+                        </Button>
+                      )}
+                    </div>
                   </div>
                 ))}
+              </div>
+              
+              {/* Solana Network Benefits */}
+              <div className="mt-8 pt-6 border-t border-white/20">
+                <h4 className="text-lg font-semibold mb-4 flex items-center">
+                  <Zap className="h-5 w-5 mr-2 text-yellow-400" />
+                  Powered by Solana
+                </h4>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div className="flex items-center">
+                    <Shield className="h-4 w-4 mr-2 text-green-400" />
+                    <span className="text-blue-100">Secure & Decentralized</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Zap className="h-4 w-4 mr-2 text-yellow-400" />
+                    <span className="text-blue-100">Fast Transactions</span>
+                  </div>
+                  <div className="flex items-center">
+                    <Coins className="h-4 w-4 mr-2 text-green-400" />
+                    <span className="text-blue-100">Low Fees</span>
+                  </div>
+                  <div className="flex items-center">
+                    <ExternalLink className="h-4 w-4 mr-2 text-blue-400" />
+                    <span className="text-blue-100">Cross-Platform</span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -104,11 +160,15 @@ export default function THCTokenSection() {
             <Button 
               variant="outline" 
               className="border-white text-white hover:bg-white hover:text-blue-600 bg-transparent"
+              onClick={() => window.open('https://pro.tradehybrid.club/thc-staking', '_blank')}
             >
-              Buy THC Token
+              Start THC Staking
             </Button>
-            <Button className="bg-white text-blue-600 hover:bg-gray-100">
-              View Whitepaper
+            <Button 
+              className="bg-white text-blue-600 hover:bg-gray-100"
+              onClick={() => window.open('https://solscan.io/token/4kXPBvQthvpes9TC7h6tXsYxWPUbYWpocBMVUG3eBLy4', '_blank')}
+            >
+              View on Solscan
             </Button>
           </div>
         </div>
