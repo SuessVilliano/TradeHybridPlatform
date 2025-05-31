@@ -77,13 +77,13 @@ export default function PricingSection() {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section id="pricing" className="py-16 bg-gray-50 dark:bg-gray-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl mb-4">
             Our Prices
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Choose the perfect plan to accelerate your trading journey
           </p>
         </div>
@@ -103,20 +103,20 @@ export default function PricingSection() {
                 <div className={`w-12 h-12 bg-gradient-to-r ${plan.gradient} rounded-full mx-auto mb-4 flex items-center justify-center`}>
                   <plan.icon className="h-6 w-6 text-white" />
                 </div>
-                <CardTitle className="text-xl font-bold">{plan.name}</CardTitle>
+                <CardTitle className="text-xl font-bold text-gray-900 dark:text-white">{plan.name}</CardTitle>
                 <div className="mt-4">
-                  <span className="text-3xl font-bold text-gray-900">{plan.price}</span>
-                  <span className="text-gray-600 ml-1">{plan.period}</span>
+                  <span className="text-3xl font-bold text-gray-900 dark:text-white">{plan.price}</span>
+                  <span className="text-gray-600 dark:text-gray-300 ml-1">{plan.period}</span>
                 </div>
-                <p className="text-sm text-gray-600 mt-2">{plan.description}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-300 mt-2">{plan.description}</p>
               </CardHeader>
 
               <CardContent>
                 <ul className="space-y-3 mb-6">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
-                      <Check className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                      <span className="text-sm text-gray-600">{feature}</span>
+                      <Check className="h-5 w-5 text-green-500 dark:text-green-400 mr-2 mt-0.5 flex-shrink-0" />
+                      <span className="text-sm text-gray-600 dark:text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
