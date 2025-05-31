@@ -17,6 +17,7 @@ export default function PricingSection() {
         "Access to 1 Market Buddy (AI)"
       ],
       buttonText: "BUY NOW",
+      checkoutUrl: "https://whop.com/checkout/1TIvb4zqrWODtRq69r-8xj0-51pd-UkLn-GwSXx18tPbZx/",
       popular: false,
       icon: Zap,
       gradient: "from-purple-600 to-purple-700"
@@ -33,6 +34,7 @@ export default function PricingSection() {
         "Trade Hybrid Trade Journal"
       ],
       buttonText: "BUY NOW",
+      checkoutUrl: "https://whop.com/checkout/5sIJaH2cjV5tQsOoBX-eJnb-QHqG-OP9q-5z9KmBGnaxrB/",
       popular: true,
       icon: Star,
       gradient: "from-cyan-500 to-cyan-600"
@@ -49,6 +51,7 @@ export default function PricingSection() {
         "Access to Company Liquidity Pool"
       ],
       buttonText: "BUY NOW",
+      checkoutUrl: "https://whop.com/checkout/1SOuliJDFuPJPEFUPL-a4l7-4NwZ-nnVs-9Z8gADiIFnS0/",
       popular: false,
       icon: Crown,
       gradient: "from-purple-600 to-cyan-500"
@@ -66,6 +69,7 @@ export default function PricingSection() {
         "Access to Founders Liquidity Pool"
       ],
       buttonText: "BUY NOW",
+      checkoutUrl: "https://whop.com/checkout/1SOuliJDFuPJPEFUPL-a4l7-4NwZ-nnVs-9Z8gADiIFnS0/",
       popular: false,
       icon: Crown,
       gradient: "from-purple-600 to-pink-500"
@@ -119,6 +123,7 @@ export default function PricingSection() {
 
                 <Button 
                   className={`w-full bg-gradient-to-r ${plan.gradient} hover:opacity-90 text-white`}
+                  onClick={() => window.open(plan.checkoutUrl, '_blank')}
                 >
                   {plan.buttonText}
                 </Button>

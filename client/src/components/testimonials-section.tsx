@@ -69,7 +69,10 @@ export default function TestimonialsSection() {
           <div className="bg-gradient-to-r from-purple-600 to-cyan-500 rounded-xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">Ready To Take Action?</h3>
             <p className="text-lg mb-6">Join thousands of successful traders in the Trade Hybrid community</p>
-            <button className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-colors">
+            <button 
+              className="bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold text-lg transition-colors"
+              onClick={() => window.open('https://whop.com/checkout/5sIJaH2cjV5tQsOoBX-eJnb-QHqG-OP9q-5z9KmBGnaxrB/', '_blank')}
+            >
               JOIN TRADE HYBRID
             </button>
           </div>
