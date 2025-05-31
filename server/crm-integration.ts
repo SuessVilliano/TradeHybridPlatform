@@ -92,7 +92,9 @@ export class CRMIntegration {
 
   async updateUserProfile(userId: string, updates: Partial<CRMUser>): Promise<CRMUser | null> {
     try {
-      const contactData: any = {};
+      const contactData: any = {
+        listid: 'Trade Hybrid Members' // Associate with Trade Hybrid Members list
+      };
       
       if (updates.email) contactData.email = updates.email;
       if (updates.firstName) contactData.fname = updates.firstName;
@@ -158,6 +160,34 @@ export class CRMIntegration {
     });
   }
 
+  async addNewMember(email: string, membershipTier?: string, firstName?: string, lastName?: string): Promise<CRMUser | null> {
+    try {
+      const contactData: any = {
+        email,
+        listid: 'Trade Hybrid Members',
+        fname: firstName || '',
+        lname: lastName || '',
+        customfield1: membershipTier || 'Trade Hybrid Member',
+        source: 'Trade Hybrid Dashboard'
+      };
+      
+      await this.makeRequest('/contacts/add', 'POST', contactData);
+      
+      // Track new member activity
+      await this.trackActivity({
+        userId: email,
+        activityType: 'new_member',
+        description: `New member joined Trade Hybrid with ${membershipTier || 'basic'} membership`,
+        timestamp: new Date(),
+      });
+      
+      return await this.getUserProfile(email);
+    } catch (error) {
+      console.log('Could not add new member to VBOut:', error);
+      return null;
+    }
+  }
+
   async syncUserWithWhop(userId: string, whopData: any): Promise<void> {
     const updates: Partial<CRMUser> = {
       membershipTier: whopData.product?.name || 'Trade Hybrid Member',
@@ -166,6 +196,17 @@ export class CRMIntegration {
 
     if (whopData.email && !whopData.email.includes('noreply')) {
       updates.email = whopData.email;
+      
+      // Add as new member if they don't exist
+      const existingUser = await this.getUserProfile(whopData.email);
+      if (!existingUser) {
+        await this.addNewMember(
+          whopData.email, 
+          whopData.product?.name,
+          whopData.first_name,
+          whopData.last_name
+        );
+      }
     }
 
     await this.updateUserProfile(userId, updates);

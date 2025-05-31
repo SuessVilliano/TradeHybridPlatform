@@ -114,6 +114,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  app.post("/api/crm/add-member", async (req, res) => {
+    try {
+      const { email, membershipTier, firstName, lastName } = req.body;
+      const newMember = await crmIntegration.addNewMember(email, membershipTier, firstName, lastName);
+      res.json(newMember);
+    } catch (error) {
+      console.error("Error adding new member:", error);
+      res.status(500).json({ message: "Failed to add new member" });
+    }
+  });
+
   const httpServer = createServer(app);
   return httpServer;
 }
