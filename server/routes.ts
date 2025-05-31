@@ -7,6 +7,9 @@ import { insertContactSubmissionSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express): Promise<Server> {
+  // Setup Whop authentication routes
+  setupWhopAuth(app);
+
   // Contact form submission endpoint
   app.post("/api/contact", async (req, res) => {
     try {

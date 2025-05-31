@@ -197,7 +197,7 @@ export default function Dashboard() {
                 <Loader2 className="w-4 h-4 animate-spin text-purple-300" />
               ) : (
                 <Badge className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white">
-                  {subscriptions?.data?.[0]?.product?.name || "Member"}
+                  Member
                 </Badge>
               )}
               <Button 
