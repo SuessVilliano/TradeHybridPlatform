@@ -123,7 +123,7 @@ export default function WhopTest() {
                 ) : subscriptions ? (
                   <div className="bg-gray-800/50 p-4 rounded-lg">
                     <pre className="text-sm text-green-300 overflow-auto">
-                      {JSON.stringify(subscriptions, null, 2)}
+                      {JSON.stringify(subscriptions || {}, null, 2)}
                     </pre>
                   </div>
                 ) : (

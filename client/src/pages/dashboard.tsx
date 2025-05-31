@@ -262,7 +262,7 @@ export default function Dashboard() {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-8">
           <Card className={`backdrop-blur-sm transition-colors duration-300 ${
             theme === 'dark' 
               ? 'bg-black/40 border-purple-500/20' 
@@ -336,7 +336,7 @@ export default function Dashboard() {
         </div>
 
         {/* Dashboard Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {dashboardCards.map((card) => {
             const IconComponent = card.icon;
             return (

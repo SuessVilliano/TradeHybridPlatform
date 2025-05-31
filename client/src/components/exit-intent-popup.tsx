@@ -64,7 +64,7 @@ export default function ExitIntentPopup({ isVisible, onClose }: ExitIntentPopupP
   return (
     <Dialog open={isVisible} onOpenChange={onClose}>
       <DialogTitle className="sr-only">Trade Hybrid Membership Offer</DialogTitle>
-      <DialogContent className="max-w-4xl bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 border-purple-500/30 p-0 overflow-hidden">
+      <DialogContent className="max-w-4xl w-[95vw] bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 border-purple-500/30 p-0 overflow-hidden max-h-[90vh] overflow-y-auto">
         <div className="relative">
           {/* Close Button */}
           <button
@@ -75,7 +75,7 @@ export default function ExitIntentPopup({ isVisible, onClose }: ExitIntentPopupP
           </button>
 
           {/* Header */}
-          <div className="text-center p-8 pb-6">
+          <div className="text-center p-4 md:p-8 pb-4 md:pb-6">
             <div className="flex items-center justify-center mb-4">
               <img 
                 src="/trade-hybrid-logo.png" 
@@ -102,7 +102,7 @@ export default function ExitIntentPopup({ isVisible, onClose }: ExitIntentPopupP
           </div>
 
           {/* Value Propositions */}
-          <div className="px-8 pb-6">
+          <div className="px-4 md:px-8 pb-4 md:pb-6">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
               <div className="bg-black/40 rounded-lg p-4 text-center">
                 <TrendingUp className="w-8 h-8 text-green-400 mx-auto mb-2" />
@@ -130,7 +130,7 @@ export default function ExitIntentPopup({ isVisible, onClose }: ExitIntentPopupP
             </div>
 
             {/* Membership Tiers */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
               {membershipTiers.map((tier) => (
                 <Card 
                   key={tier.name}
