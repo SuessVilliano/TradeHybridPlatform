@@ -9,8 +9,12 @@ import TestimonialsSection from "@/components/testimonials-section";
 import AboutSection from "@/components/about-section";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
+import ExitIntentPopup from "@/components/exit-intent-popup";
+import { useExitIntent } from "@/hooks/useExitIntent";
 
 export default function Home() {
+  const { showExitIntent, handleClosePopup } = useExitIntent();
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Navigation />
@@ -24,6 +28,11 @@ export default function Home() {
       <AboutSection />
       <ContactSection />
       <Footer />
+      
+      <ExitIntentPopup 
+        isVisible={showExitIntent}
+        onClose={handleClosePopup}
+      />
     </div>
   );
 }

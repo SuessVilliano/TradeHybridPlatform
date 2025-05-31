@@ -8,6 +8,8 @@ import THCTokenPage from "@/pages/thc-token";
 import Dashboard from "@/pages/dashboard";
 import Login from "@/pages/login";
 import WhopTest from "@/pages/whop-test";
+import PrivacyPolicy from "@/pages/privacy-policy";
+import TermsOfService from "@/pages/terms-of-service";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -18,6 +20,8 @@ function Router() {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/login" component={Login} />
       <Route path="/whop-test" component={WhopTest} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-of-service" component={TermsOfService} />
       <Route component={NotFound} />
     </Switch>
   );
