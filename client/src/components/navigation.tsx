@@ -58,6 +58,15 @@ export default function Navigation() {
                   </button>
                 </Link>
               )}
+              <Link href="/dashboard">
+                <button className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                  location === '/dashboard' 
+                    ? 'text-purple-600' 
+                    : 'text-gray-700 hover:text-purple-600'
+                }`}>
+                  Dashboard
+                </button>
+              </Link>
               <button 
                 onClick={() => scrollToSection('about')}
                 className="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
@@ -126,6 +135,15 @@ export default function Navigation() {
                   </button>
                 </Link>
               )}
+              <Link href="/dashboard">
+                <button className={`block px-3 py-2 rounded-md text-base font-medium w-full text-left ${
+                  location === '/dashboard' 
+                    ? 'text-purple-600' 
+                    : 'text-gray-700 hover:text-purple-600'
+                }`}>
+                  Dashboard
+                </button>
+              </Link>
               <button 
                 onClick={() => scrollToSection('about')}
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 w-full text-left"
