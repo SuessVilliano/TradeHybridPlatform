@@ -91,7 +91,7 @@ export default function Navigation() {
             <ThemeToggle />
             <Button 
               variant="ghost" 
-              onClick={() => window.location.href = '/api/login'}
+              onClick={() => window.location.href = '/api/auth/whop'}
               className="text-gray-700 dark:text-gray-300 hover:text-purple-600 dark:hover:text-purple-400"
             >
               Login

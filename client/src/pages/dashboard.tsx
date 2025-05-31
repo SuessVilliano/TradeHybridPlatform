@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
+import { useAuth } from "@/hooks/useAuth";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -33,13 +34,15 @@ import WelcomeTutorial from "@/components/welcome-tutorial";
 
 export default function Dashboard() {
   const [openWidget, setOpenWidget] = useState<string | null>(null);
-  const [userId, setUserId] = useState<string>("demo-user"); // In real app, get from auth
   const { theme, toggleTheme } = useTheme();
+  const { user, isAuthenticated, isLoading: authLoading } = useAuth();
+
+  const userId = (user as any)?.id;
 
   // Check if user is new for tutorial
   const { data: newUserCheck } = useQuery({
     queryKey: ['/api/crm/check-new-user', userId],
-    enabled: !!userId,
+    enabled: !!userId && isAuthenticated,
   });
 
   const isNewUser = (newUserCheck as any)?.isNewUser || false;
@@ -47,7 +50,7 @@ export default function Dashboard() {
   // Fetch user's Whop subscription data
   const { data: subscriptions, isLoading: subscriptionsLoading } = useQuery({
     queryKey: ['/api/whop/subscriptions', userId],
-    enabled: !!userId,
+    enabled: !!userId && isAuthenticated,
   });
 
   // Fetch Whop products to match user's subscription
@@ -222,7 +225,11 @@ export default function Dashboard() {
                   <KangarooAvatar className="w-8 h-8" />
                   <p className={`transition-colors duration-300 ${
                     theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
-                  }`}>Welcome back, Yuppy Don</p>
+                  }`}>
+                    {authLoading ? 'Loading...' : 
+                     isAuthenticated && user ? `Welcome back, ${user.username || user.email || 'Trader'}` : 
+                     'Welcome, Guest'}
+                  </p>
                 </div>
               </div>
             </div>

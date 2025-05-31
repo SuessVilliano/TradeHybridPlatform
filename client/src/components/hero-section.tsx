@@ -26,7 +26,7 @@ export default function HeroSection() {
                 <div className="rounded-md shadow">
                   <Button 
                     size="lg"
-                    onClick={() => window.location.href = '/api/login'}
+                    onClick={() => window.location.href = '/api/auth/whop'}
                     className="w-full flex items-center justify-center px-8 py-3 text-base font-medium bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white md:py-4 md:text-lg md:px-10 th-glow"
                   >
                     Start Trading Now
