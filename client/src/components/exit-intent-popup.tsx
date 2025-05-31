@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -44,7 +44,7 @@ export default function ExitIntentPopup({ isVisible, onClose }: ExitIntentPopupP
       popular: false
     },
     {
-      name: "Professional",
+      name: "Professional", 
       price: "$197",
       features: ["Advanced AI Signals", "Live Trading Room", "1-on-1 Mentorship", "Priority Support"],
       url: "https://whop.com/trade-hybrid-club/?pass=prod_professional",
@@ -52,9 +52,9 @@ export default function ExitIntentPopup({ isVisible, onClose }: ExitIntentPopupP
     },
     {
       name: "Elite",
-      price: "$497", 
+      price: "$497",
       features: ["Prop Firm Access", "Custom Strategies", "Direct Line to Traders", "Exclusive Events"],
-      url: "https://whop.com/trade-hybrid-club/?pass=prod_elite",
+      url: "https://whop.com/trade-hybrid-club/?pass=prod_elite", 
       popular: false
     }
   ];
@@ -63,14 +63,15 @@ export default function ExitIntentPopup({ isVisible, onClose }: ExitIntentPopupP
 
   return (
     <Dialog open={isVisible} onOpenChange={onClose}>
+      <DialogTitle className="sr-only">Trade Hybrid Membership Offer</DialogTitle>
       <DialogContent className="max-w-4xl bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 border-purple-500/30 p-0 overflow-hidden">
         <div className="relative">
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 z-10 text-white/60 hover:text-white transition-colors"
+            className="absolute top-4 right-4 z-10 text-white/60 hover:text-white transition-colors bg-black/20 rounded-full p-2 hover:bg-black/40"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </button>
 
           {/* Header */}
