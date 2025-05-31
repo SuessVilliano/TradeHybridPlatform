@@ -6,21 +6,20 @@ export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== 'undefined') {
       const stored = localStorage.getItem('theme') as Theme;
-      return stored || 'dark';
+      return stored || 'light';
     }
-    return 'dark';
+    return 'light';
   });
 
   useEffect(() => {
-    const root = window.document.documentElement;
+    const root = document.documentElement;
     
-    // Remove previous theme classes
-    root.classList.remove('light', 'dark');
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
     
-    // Add current theme class
-    root.classList.add(theme);
-    
-    // Store in localStorage
     localStorage.setItem('theme', theme);
   }, [theme]);
 
