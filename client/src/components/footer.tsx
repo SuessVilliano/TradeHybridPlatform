@@ -38,13 +38,13 @@ export default function Footer() {
           {/* Company Info */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-cyan-500 rounded-lg flex items-center justify-center mr-3">
                 <span className="text-white font-bold text-lg">TH</span>
               </div>
-              <span className="text-xl font-bold">TradeHybrid Club</span>
+              <span className="text-xl font-bold">Trade Hybrid Club</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
-              Professional cryptocurrency trading platform with advanced tools, comprehensive analytics, and our native THC token ecosystem.
+              At Trade Hybrid, we empower individuals worldwide by providing the knowledge, tools and community support for financial success.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map((social, index) => (
@@ -97,7 +97,7 @@ export default function Footer() {
 
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-gray-400 text-sm">
-            © 2024 TradeHybrid Club. All rights reserved.
+            © 2024 Trade Hybrid Club. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <span className="text-gray-400 text-sm">Licensed & Regulated</span>
