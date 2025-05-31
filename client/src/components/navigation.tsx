@@ -22,9 +22,11 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-cyan-500 rounded-lg flex items-center justify-center mr-3 th-glow">
-                <span className="text-white font-bold text-lg">TH</span>
-              </div>
+              <img 
+                src="/trade-hybrid-logo.png" 
+                alt="Trade Hybrid Club"
+                className="w-10 h-10 mr-3"
+              />
               <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent">Trade Hybrid Club</span>
             </div>
           </div>
