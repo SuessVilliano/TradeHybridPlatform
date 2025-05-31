@@ -22,13 +22,17 @@ import {
   Loader2,
   Calendar,
   ShoppingBag,
-  Trophy
+  Trophy,
+  Sun,
+  Moon
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { useTheme } from "@/hooks/useTheme";
 
 export default function Dashboard() {
   const [openWidget, setOpenWidget] = useState<string | null>(null);
   const [userId, setUserId] = useState<string>("demo-user"); // In real app, get from auth
+  const { theme, toggleTheme } = useTheme();
 
   // Fetch user's Whop subscription data
   const { data: subscriptions, isLoading: subscriptionsLoading } = useQuery({
@@ -179,9 +183,17 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900">
+    <div className={`min-h-screen transition-colors duration-300 ${
+      theme === 'dark' 
+        ? 'bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900' 
+        : 'bg-gradient-to-br from-gray-50 via-blue-50 to-gray-50'
+    }`}>
       {/* Header */}
-      <div className="bg-black/50 backdrop-blur-sm border-b border-purple-500/20">
+      <div className={`backdrop-blur-sm border-b transition-colors duration-300 ${
+        theme === 'dark'
+          ? 'bg-black/50 border-purple-500/20'
+          : 'bg-white/80 border-gray-200'
+      }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -193,13 +205,17 @@ export default function Dashboard() {
                 />
               </Link>
               <div>
-                <h1 className="text-2xl font-bold text-white">Trade Hybrid Dashboard</h1>
-                <p className="text-purple-300">Welcome back, trader</p>
+                <h1 className={`text-2xl font-bold transition-colors duration-300 ${
+                  theme === 'dark' ? 'text-white' : 'text-gray-900'
+                }`}>Trade Hybrid Dashboard</h1>
+                <p className={`transition-colors duration-300 ${
+                  theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
+                }`}>Welcome back, trader</p>
               </div>
             </div>
             <div className="flex items-center space-x-4">
               {subscriptionsLoading ? (
-                <Loader2 className="w-4 h-4 animate-spin text-purple-300" />
+                <Loader2 className="w-4 h-4 animate-spin text-purple-300 dark:text-purple-300" />
               ) : (
                 <Badge className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white">
                   Member
@@ -207,7 +223,24 @@ export default function Dashboard() {
               )}
               <Button 
                 variant="ghost" 
-                className="text-purple-300 hover:text-white"
+                size="sm"
+                className={`transition-colors duration-300 ${
+                  theme === 'dark' 
+                    ? 'text-purple-300 hover:text-white' 
+                    : 'text-blue-600 hover:text-blue-800'
+                }`}
+                onClick={toggleTheme}
+              >
+                {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                className={`transition-colors duration-300 ${
+                  theme === 'dark' 
+                    ? 'text-purple-300 hover:text-white' 
+                    : 'text-blue-600 hover:text-blue-800'
+                }`}
                 onClick={() => window.open('https://whop.com/hub', '_blank')}
               >
                 <Settings className="w-5 h-5" />
@@ -221,12 +254,20 @@ export default function Dashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="bg-black/40 border-purple-500/20 backdrop-blur-sm">
+          <Card className={`backdrop-blur-sm transition-colors duration-300 ${
+            theme === 'dark' 
+              ? 'bg-black/40 border-purple-500/20' 
+              : 'bg-white/60 border-gray-200'
+          }`}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-300 text-sm">Portfolio Value</p>
-                  <p className="text-2xl font-bold text-white">$125,450</p>
+                  <p className={`text-sm transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
+                  }`}>Portfolio Value</p>
+                  <p className={`text-2xl font-bold transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  }`}>$125,450</p>
                   <p className="text-green-400 text-sm">+12.5% this month</p>
                 </div>
                 <TrendingUp className="w-8 h-8 text-green-400" />
@@ -234,28 +275,52 @@ export default function Dashboard() {
             </CardContent>
           </Card>
           
-          <Card className="bg-black/40 border-purple-500/20 backdrop-blur-sm">
+          <Card className={`backdrop-blur-sm transition-colors duration-300 ${
+            theme === 'dark' 
+              ? 'bg-black/40 border-purple-500/20' 
+              : 'bg-white/60 border-gray-200'
+          }`}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-300 text-sm">Active Trades</p>
-                  <p className="text-2xl font-bold text-white">8</p>
-                  <p className="text-cyan-400 text-sm">3 winning positions</p>
+                  <p className={`text-sm transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
+                  }`}>Active Trades</p>
+                  <p className={`text-2xl font-bold transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  }`}>8</p>
+                  <p className={`text-sm transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-cyan-400' : 'text-blue-500'
+                  }`}>3 winning positions</p>
                 </div>
-                <Play className="w-8 h-8 text-cyan-400" />
+                <Play className={`w-8 h-8 transition-colors duration-300 ${
+                  theme === 'dark' ? 'text-cyan-400' : 'text-blue-500'
+                }`} />
               </div>
             </CardContent>
           </Card>
           
-          <Card className="bg-black/40 border-purple-500/20 backdrop-blur-sm">
+          <Card className={`backdrop-blur-sm transition-colors duration-300 ${
+            theme === 'dark' 
+              ? 'bg-black/40 border-purple-500/20' 
+              : 'bg-white/60 border-gray-200'
+          }`}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-purple-300 text-sm">Community Rank</p>
-                  <p className="text-2xl font-bold text-white">#247</p>
-                  <p className="text-purple-400 text-sm">Top 15% trader</p>
+                  <p className={`text-sm transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
+                  }`}>Community Rank</p>
+                  <p className={`text-2xl font-bold transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-white' : 'text-gray-900'
+                  }`}>#247</p>
+                  <p className={`text-sm transition-colors duration-300 ${
+                    theme === 'dark' ? 'text-purple-400' : 'text-blue-500'
+                  }`}>Top 15% trader</p>
                 </div>
-                <Users className="w-8 h-8 text-purple-400" />
+                <Users className={`w-8 h-8 transition-colors duration-300 ${
+                  theme === 'dark' ? 'text-purple-400' : 'text-blue-500'
+                }`} />
               </div>
             </CardContent>
           </Card>
