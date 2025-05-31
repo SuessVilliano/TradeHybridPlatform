@@ -52,7 +52,7 @@ export default function AboutSection() {
             <div className="grid grid-cols-2 gap-6">
               {stats.map((stat, index) => (
                 <div key={index}>
-                  <div className="text-2xl font-bold text-blue-600">{stat.value}</div>
+                  <div className="text-2xl font-bold text-purple-600">{stat.value}</div>
                   <div className="text-gray-600">{stat.label}</div>
                 </div>
               ))}
@@ -61,13 +61,13 @@ export default function AboutSection() {
           <div className="bg-gray-100 rounded-xl p-8">
             {/* Company image placeholder - modern office environment */}
             <div className="bg-white rounded-lg shadow-lg p-8 text-center">
-              <Building className="text-blue-600 h-16 w-16 mx-auto mb-4" />
+              <Building className="text-purple-600 h-16 w-16 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Global Headquarters</h3>
               <p className="text-gray-600">Wilmington, Delaware</p>
               <div className="mt-6 grid grid-cols-3 gap-4">
                 {companyStats.map((stat, index) => (
                   <div key={index} className="text-center">
-                    <div className="text-lg font-bold text-blue-600">{stat.value}</div>
+                    <div className="text-lg font-bold text-cyan-500">{stat.value}</div>
                     <div className="text-xs text-gray-500">{stat.label}</div>
                   </div>
                 ))}
@@ -87,11 +87,11 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <div key={index} className="text-center bg-gray-50 rounded-xl p-8">
-              <div className="w-24 h-24 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+              <div className="w-24 h-24 bg-gradient-to-br from-purple-600 to-cyan-500 rounded-full mx-auto mb-4 flex items-center justify-center th-glow">
                 <span className="text-white text-2xl font-bold">{member.initials}</span>
               </div>
               <h4 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h4>
-              <p className="text-blue-600 font-medium mb-3">{member.role}</p>
+              <p className="text-purple-600 font-medium mb-3">{member.role}</p>
               <p className="text-gray-600 text-sm">{member.description}</p>
             </div>
           ))}

@@ -47,22 +47,22 @@ export default function HeroSection() {
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <div className="h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full bg-gradient-to-br from-blue-600 to-blue-800 flex items-center justify-center">
+        <div className="h-56 w-full sm:h-72 md:h-96 lg:w-full lg:h-full th-cyberpunk-gradient flex items-center justify-center">
           <div className="text-center text-white p-8">
             <div className="grid grid-cols-2 gap-4 animate-float">
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 th-glow">
                 <div className="text-2xl font-bold">$2.1M+</div>
                 <div className="text-sm opacity-90">Daily Volume</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 th-glow">
                 <div className="text-2xl font-bold">15K+</div>
                 <div className="text-sm opacity-90">Active Traders</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 th-glow">
                 <div className="text-2xl font-bold">99.9%</div>
                 <div className="text-sm opacity-90">Uptime</div>
               </div>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4">
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 th-glow">
                 <div className="text-2xl font-bold">24/7</div>
                 <div className="text-sm opacity-90">Support</div>
               </div>
