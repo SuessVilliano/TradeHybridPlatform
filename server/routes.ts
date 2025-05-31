@@ -2,6 +2,7 @@ import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { whopAPI } from "./whop-api";
+import { setupWhopAuth } from "./whop-auth";
 import { insertContactSubmissionSchema } from "@shared/schema";
 import { z } from "zod";
 

@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -16,12 +17,28 @@ import {
   Play,
   Users,
   TrendingUp,
-  Settings
+  Settings,
+  Loader2,
+  Calendar,
+  ShoppingBag,
+  Trophy
 } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 
 export default function Dashboard() {
   const [openWidget, setOpenWidget] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string>("demo-user"); // In real app, get from auth
+
+  // Fetch user's Whop subscription data
+  const { data: subscriptions, isLoading: subscriptionsLoading } = useQuery({
+    queryKey: ['/api/whop/subscriptions', userId],
+    enabled: !!userId,
+  });
+
+  // Fetch Whop products to match user's subscription
+  const { data: products, isLoading: productsLoading } = useQuery({
+    queryKey: ['/api/whop/products'],
+  });
 
   const dashboardCards = [
     {
@@ -41,6 +58,44 @@ export default function Dashboard() {
       url: "https://tradehybridagent.com",
       gradient: "from-cyan-500 to-cyan-600",
       isEmbed: true
+    },
+    {
+      id: "prop-firm",
+      title: "Hybrid Funding",
+      description: "Access our proprietary trading firm platform",
+      icon: Trophy,
+      url: "https://hybridfunding.co",
+      gradient: "from-emerald-500 to-emerald-600",
+      isEmbed: true
+    },
+    {
+      id: "battles",
+      title: "Trading Battles",
+      description: "Compete in live trading competitions",
+      icon: Play,
+      url: "https://battles.hybridfunding.co",
+      gradient: "from-red-500 to-pink-500",
+      isEmbed: true
+    },
+    {
+      id: "events",
+      title: "Events",
+      description: "Join live trading events and webinars",
+      icon: Calendar,
+      url: "#",
+      gradient: "from-violet-500 to-violet-600",
+      isEmbed: false,
+      comingSoon: true
+    },
+    {
+      id: "shop",
+      title: "Shop",
+      description: "Purchase trading tools and merchandise",
+      icon: ShoppingBag,
+      url: "#",
+      gradient: "from-amber-500 to-amber-600",
+      isEmbed: false,
+      comingSoon: true
     },
     {
       id: "billing",
@@ -138,10 +193,18 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <Badge className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white">
-                Pro Member
-              </Badge>
-              <Button variant="ghost" className="text-purple-300 hover:text-white">
+              {subscriptionsLoading ? (
+                <Loader2 className="w-4 h-4 animate-spin text-purple-300" />
+              ) : (
+                <Badge className="bg-gradient-to-r from-purple-600 to-cyan-500 text-white">
+                  {subscriptions?.data?.[0]?.product?.name || "Member"}
+                </Badge>
+              )}
+              <Button 
+                variant="ghost" 
+                className="text-purple-300 hover:text-white"
+                onClick={() => window.open('https://whop.com/hub', '_blank')}
+              >
                 <Settings className="w-5 h-5" />
               </Button>
             </div>
