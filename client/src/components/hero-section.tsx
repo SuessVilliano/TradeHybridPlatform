@@ -17,7 +17,7 @@ export default function HeroSection() {
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-bold text-gray-900 sm:text-5xl md:text-6xl animate-slide-up">
                 <span className="block xl:inline">Professional Trading</span>
-                <span className="block text-blue-600 xl:inline"> Made Simple</span>
+                <span className="block bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent xl:inline th-text-glow"> Made Simple</span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0 animate-fade-in">
                 Access advanced trading tools, comprehensive market analysis, and our exclusive THC token ecosystem. Join thousands of traders who trust TradeHybrid Club for their investment journey.
@@ -26,7 +26,7 @@ export default function HeroSection() {
                 <div className="rounded-md shadow">
                   <Button 
                     size="lg"
-                    className="w-full flex items-center justify-center px-8 py-3 text-base font-medium bg-blue-600 hover:bg-blue-700 text-white md:py-4 md:text-lg md:px-10"
+                    className="w-full flex items-center justify-center px-8 py-3 text-base font-medium bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white md:py-4 md:text-lg md:px-10 th-glow"
                   >
                     Start Trading Now
                   </Button>
@@ -36,7 +36,7 @@ export default function HeroSection() {
                     variant="outline"
                     size="lg"
                     onClick={() => scrollToSection('services')}
-                    className="w-full flex items-center justify-center px-8 py-3 text-base font-medium text-blue-600 bg-blue-50 border-blue-200 hover:bg-blue-100 md:py-4 md:text-lg md:px-10"
+                    className="w-full flex items-center justify-center px-8 py-3 text-base font-medium text-purple-600 bg-purple-50 border-purple-200 hover:bg-purple-100 md:py-4 md:text-lg md:px-10"
                   >
                     Learn More
                   </Button>

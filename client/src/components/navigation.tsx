@@ -22,10 +22,10 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-cyan-500 rounded-lg flex items-center justify-center mr-3 th-glow">
                 <span className="text-white font-bold text-lg">TH</span>
               </div>
-              <span className="text-xl font-bold text-gray-900">TradeHybrid Club</span>
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-600 to-cyan-500 bg-clip-text text-transparent">TradeHybrid Club</span>
             </div>
           </div>
 
@@ -34,39 +34,39 @@ export default function Navigation() {
             <div className="ml-10 flex items-baseline space-x-4">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="text-blue-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-purple-600 hover:text-cyan-500 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Home
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Services
               </button>
               {location === "/" ? (
                 <button 
                   onClick={() => scrollToSection('thc-token')}
-                  className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="text-gray-700 hover:text-cyan-500 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   THC Token
                 </button>
               ) : (
                 <Link href="/thc-token">
-                  <button className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                  <button className="text-gray-700 hover:text-cyan-500 px-3 py-2 rounded-md text-sm font-medium transition-colors">
                     THC Token
                   </button>
                 </Link>
               )}
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-700 hover:text-purple-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 About
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-gray-700 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-700 hover:text-cyan-500 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
                 Contact
               </button>
@@ -75,10 +75,10 @@ export default function Navigation() {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" className="text-gray-700 hover:text-blue-600">
+            <Button variant="ghost" className="text-gray-700 hover:text-purple-600">
               Login
             </Button>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button className="bg-gradient-to-r from-purple-600 to-cyan-500 hover:from-purple-700 hover:to-cyan-600 text-white th-glow">
               Get Started
             </Button>
           </div>
