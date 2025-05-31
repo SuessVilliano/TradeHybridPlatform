@@ -227,7 +227,7 @@ export default function Dashboard() {
                     theme === 'dark' ? 'text-purple-300' : 'text-blue-600'
                   }`}>
                     {authLoading ? 'Loading...' : 
-                     isAuthenticated && user ? `Welcome back, ${user.username || user.email || 'Trader'}` : 
+                     isAuthenticated && user ? `Welcome back, ${(user as any).username || (user as any).email || 'Trader'}` : 
                      'Welcome, Guest'}
                   </p>
                 </div>

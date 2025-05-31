@@ -93,12 +93,12 @@ export function setupWhopAuth(app: Express) {
         access_token: tokenData.access_token,
       };
 
-      console.log("Session saved, redirecting to test page");
-      // Redirect to test page
-      res.redirect("/whop-test?auth=success");
+      console.log("Session saved, redirecting to dashboard");
+      // Redirect to dashboard after successful login
+      res.redirect("/dashboard?auth=success");
     } catch (error) {
       console.error("Whop OAuth error:", error);
-      res.redirect("/whop-test?error=auth_failed");
+      res.redirect("/login?error=auth_failed");
     }
   });
 
