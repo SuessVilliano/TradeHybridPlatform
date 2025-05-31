@@ -49,13 +49,13 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className="py-16 bg-white">
+    <section id="services" className="py-16 bg-white dark:bg-gray-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white sm:text-4xl">
             Our Trading Services
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Comprehensive trading solutions for every investor, from beginners to institutions.
           </p>
         </div>
@@ -63,16 +63,16 @@ export default function ServicesSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
           {/* Professional Trading Platform */}
           <div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">Professional Trading Platform</h3>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Professional Trading Platform</h3>
             <div className="space-y-4">
               {platformFeatures.map((feature, index) => (
                 <div key={index} className="flex items-start">
                   <div className="flex-shrink-0">
-                    <CheckCircle className="text-green-600 h-5 w-5 mt-1" />
+                    <CheckCircle className="text-green-600 dark:text-green-400 h-5 w-5 mt-1" />
                   </div>
                   <div className="ml-3">
-                    <h4 className="text-lg font-medium text-gray-900">{feature.title}</h4>
-                    <p className="text-gray-600">{feature.description}</p>
+                    <h4 className="text-lg font-medium text-gray-900 dark:text-white">{feature.title}</h4>
+                    <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -84,20 +84,20 @@ export default function ServicesSection() {
               </Button>
             </div>
           </div>
-          <div className="bg-gray-100 rounded-xl p-8 text-center">
+          <div className="bg-gray-100 dark:bg-gray-800 rounded-xl p-8 text-center">
             {/* Platform preview placeholder */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="bg-white dark:bg-gray-700 rounded-lg shadow-lg p-6">
               <div className="grid grid-cols-3 gap-4 mb-4">
                 <div className="h-2 bg-green-400 rounded"></div>
                 <div className="h-2 bg-red-400 rounded"></div>
                 <div className="h-2 bg-blue-400 rounded"></div>
               </div>
               <div className="space-y-3">
-                <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-                <div className="h-4 bg-gray-200 rounded w-1/2"></div>
-                <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded w-3/4"></div>
+                <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded w-1/2"></div>
+                <div className="h-4 bg-gray-200 dark:bg-gray-600 rounded w-5/6"></div>
               </div>
-              <div className="mt-6 text-sm text-gray-500">Live Trading Interface Preview</div>
+              <div className="mt-6 text-sm text-gray-500 dark:text-gray-400">Live Trading Interface Preview</div>
             </div>
           </div>
         </div>
